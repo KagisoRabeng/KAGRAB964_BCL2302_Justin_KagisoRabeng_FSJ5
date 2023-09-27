@@ -3,6 +3,11 @@ import classes from './comment-list.module.css';
 function CommentList(props) {
   const { items } = props;
 
+  // Check if items is defined and is an array
+  if (!items || !Array.isArray(items)) {
+    return <div>No comments to display</div>;
+  }
+
   return (
     <ul className={classes.comments}>
       {items.map((item) => (
@@ -16,5 +21,6 @@ function CommentList(props) {
     </ul>
   );
 }
+
 
 export default CommentList;
